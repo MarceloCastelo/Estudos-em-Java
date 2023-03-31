@@ -3,9 +3,9 @@ public class AppNormal {
     public static void main(String[] args) throws Exception {
        ContaBancaria cb = new ContaBancaria();
 
-    int idConta = 2;
-    String Agencia = "002";
-    String numeroConta = "13131-3";
+    int idConta = 4;
+    String Agencia = "008";
+    String numeroConta = "14141-3";
     String tipo = "normal";
     double saldo = 0.0;
     double limiteCredito = 0;
