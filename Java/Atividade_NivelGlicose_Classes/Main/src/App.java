@@ -7,8 +7,10 @@ public class App {
 	//static Exame[] exames = new Embarcacao[5];
 	static List<Exame> exames = new ArrayList();
 	
-	static Scanner input = new Scanner(System.in);		
+	static Scanner input = new Scanner(System.in);	
 	
+
+	//Interface
 	public static void main(String[] args) {
 
 		int opcao = 0;
@@ -52,6 +54,11 @@ public class App {
 		input.close();
 	}
 	
+	
+	
+	
+	
+	//Pesquisar exame pelo ID
 	public static Exame pesquisaExamePorCodigo(int idExame) {
 		for (Exame exame : exames) {
 			if (idExame == exame.getIdExame()) {
@@ -61,33 +68,31 @@ public class App {
 		}
 		return null;
 	}
-	
-	
+	//Cadastrar Exame
 	public static void cadastraExame() {
 		System.out.println("\n*** Cadastro de Exame ***\n");
-		
-		input.nextLine();
+	
 		System.out.printf("\nCódigo do exame: ");
 		int idExame = input.nextInt();
-		
+	
 		if (pesquisaExamePorCodigo(idExame) != null) {
 			System.out.println("\n-- Código já cadastrado --\n");
 			return;
-		}	
-
+		}
+	
+		input.nextLine(); // adicionar essa linha para consumir a quebra de linha
+	
 		System.out.printf("\nInsira o seu nome: ");
 		String nomePaciente = input.nextLine();
-		
-		input.nextLine();
-		
+	
 		System.out.printf("\nInsira o seu nível de glicose: ");
 		int nivelGlicose = input.nextInt();
-		
+	
 		exames.add(new Exame(idExame, nomePaciente, nivelGlicose));
-		System.out.println("\n-- Cadastro efetuado --\n");				
-		
+		System.out.println("\n-- Cadastro efetuado --\n");              
 	}
 	
+	//Consultar Exame
 	public static void consultaExame() {
 		System.out.println("\n*** Consulta de Exames ***\n");
 		if (exames.size() ==0) {
@@ -106,14 +111,13 @@ public class App {
 			return;
 		}			
 		
-		System.out.printf("\nID...............: %s\n", exame.getIdExame());
-		System.out.printf("\nNome.............: %s", exame.getNomePaciente());
-		System.out.printf("\nSituação...........: %d", exame.getNivelGlicose());
-		System.out.printf("\nDiagnóstico........: %s", exame.obterDiagnostico());
+		System.out.printf("\nID.........................: %d\n", exame.getIdExame());
+		System.out.printf("\nNome.......................: %s\n", exame.getNomePaciente());
+		System.out.printf("\nNível da Glicose...........: %d\n", exame.getNivelGlicose());
+		System.out.printf("\nDiagnóstico................: %s\n", exame.obterDiagnostico());
 				
 	}
-	
-	
+	//Alterar Exame
 	public static void alteraExame() {
 		System.out.println("\n*** Alteração do Exame ***\n");
 		if (exames.size() ==0) {
@@ -132,27 +136,28 @@ public class App {
 			return;
 		}			
 		
+		System.out.println("\nNova Glicose: ");
+		int novaGlicose = input.nextInt();
+		exame.setNivelGlicose(novaGlicose);
+		System.out.println("Nivel de Glicose alerado");
+
 		System.out.printf("\nID...............: %s\n", exame.getIdExame());
 		System.out.printf("\nNome.............: %s", exame.getNomePaciente());
 		System.out.printf("\nSituação...........: %d", exame.getNivelGlicose());
 		System.out.printf("\nDiagnóstico........: %s", exame.obterDiagnostico());
 
-		System.out.println("\nNova Glicose: ");
-		int novaGlicose = input.nextInt();
-		exame.setNivelGlicose(novaGlicose);
-		System.out.println("Nivel de Glicose alerado");
+		
 	}
-	
-	
+	//Excluir Exame
 	public static void excluiExame() {
-		System.out.println("\n*** Exclusão de Embarcacao ***\n");
+		System.out.println("\n*** Exclusão do usuário ***\n");
 		if (exames.size() ==0) {
 			System.out.println("Lista vazia");
 			return;
 		}
 		
 		input.nextLine();
-		System.out.printf("\nCódigo da embarcação: ");
+		System.out.printf("\nCódigo do usuário: ");
 		int idExame = input.nextInt();
 		
 		Exame exame = pesquisaExamePorCodigo(idExame);
@@ -189,29 +194,33 @@ public class App {
 			System.out.println("-- Exclusão cancelada");
 		}				
 	}
-	
+	//Listar exame
 	public static void listaExame() {
 		System.out.println("\n*** Listagem do exame ***\n");
-		
-		if (exames.size() ==0) {
+	
+		if (exames.size() == 0) {
 			System.out.println("Lista vazia");
 			return;
 		}
-		
-		System.out.println("=====================================");
-		System.out.println("ID 		NOME 		GLICOSE 		DIAGNÓSTICO");
-		System.out.println("=====================================");
-
+	
+		System.out.println("=================================================");
+		System.out.println("ID\tNOME\tGLICOSE\tDIAGNÓSTICO");
+		System.out.println("=================================================");
+	
 		for (Exame exame : exames) {
-			System.out.printf("%-6d %-11s %10d %10s", 
-			  		  exame.getIdExame(),
-					  exame.getNomePaciente(),
-					  exame.getNivelGlicose(),
+			System.out.printf("%-6d\t%-11s\t%10d\t%10s%n",
+					exame.getIdExame(),
+					exame.getNomePaciente(),
+					exame.getNivelGlicose(),
 					exame.obterDiagnostico());
-					  				
-	}		
-	System.out.println("=====================================");		
+		}
+	
+		System.out.println("=================================================");
+	}
+	
+	
+
 }
 	
-}	
+
 	
