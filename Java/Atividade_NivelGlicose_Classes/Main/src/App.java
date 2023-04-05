@@ -1,11 +1,12 @@
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class App {
 	
-	//static Exame[] exames = new Embarcacao[5];
-	static List<Exame> exames = new ArrayList();
+	
+	static List<Exame> exames = new ArrayList<Exame>();
 	
 	static Scanner input = new Scanner(System.in);	
 	
@@ -53,10 +54,6 @@ public class App {
 		} while (opcao !=0);
 		input.close();
 	}
-	
-	
-	
-	
 	
 	//Pesquisar exame pelo ID
 	public static Exame pesquisaExamePorCodigo(int idExame) {
