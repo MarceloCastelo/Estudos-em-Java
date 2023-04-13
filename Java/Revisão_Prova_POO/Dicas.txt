@@ -1,0 +1,150 @@
+1. Encapsulamento
+
+O encapsulamento é um conceito importante em programação orientada a objetos (POO) que se refere à proteção de dados e funcionalidades dentro de uma classe.
+Isso significa que as informações internas de uma classe são protegidas de acesso externo e só podem ser manipuladas através de métodos públicos disponíveis na própria classe.
+
+Ex.: 
+
+Public Class Pessoa {
+
+private String nome = "Marcelo";
+
+}
+
+/////////////////////// 
+2. Método Construtor
+
+Métodos construtores são métodos especiais que têm o objetivo de inicializar objetos de uma classe.
+O construtor é executado automaticamente no momento em que um objeto é criado e pode receber argumentos que serão utilizados na inicialização do objeto.
+Em Java, um método construtor deve ter o mesmo nome da classe e não deve possuir um tipo de retorno.
+
+Ex.: 
+
+Public Class Pessoa {
+
+private String nome = "Marcelo";
+
+Public nome (String nome){
+    This.nome = nome;
+}
+
+}
+
+
+/////////////////////// 
+
+3. Get Set
+
+Os métodos get e set são usados em conjunto para permitir que dados privados dentro de uma classe sejam acessados e modificados de forma controlada.
+O método get é usado para retornar o valor de uma variável privada, enquanto o método set é usado para modificar o valor da variável privada.
+(Os métodos get e set são gerados automaticamente pela IDE).
+
+Ex.: 
+
+Public Class Pessoa {
+
+//Atributos
+private String nome = "Marcelo";
+
+//Construtor
+Public nome (String nome){
+    This.nome = nome;
+}
+
+//Acessa atributo com o get
+public String getNome() {
+        return nome;
+}        
+
+//Modifica atributo com o Set
+public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+
+}
+
+/////////////////////// 
+4. Array
+Em Java, um array é uma coleção de elementos do mesmo tipo que podem ser armazenados em um único objeto.
+Os elementos de um array são referenciados por um índice, que começa em 0 e vai até o tamanho do array menos um. (O array começa em 0).
+
+Ex.:
+
+//Primeiro, criamos o array. O número dentro do new int define o tamanho do Array.
+
+int[] numeros = new int[5];
+
+//Chamando o método, escolhemos posição do array e após o "=", definimos o seu valor
+
+numeros[0] = 10;
+
+//Desta forma, definimos todos os valores que estarão dentor do array.
+
+int[] numeros = {1, 2, 3, 4, 5};
+
+5. ArrayList
+
+O ArrayList é uma das estruturas de dados mais úteis em Java e é bastante utilizada em programas de todos os tipos.
+O ArrayList é uma classe que implementa a interface List e é usada para armazenar uma coleção de objetos em um array dinâmico.
+Isso significa que um ArrayList pode crescer ou diminuir dinamicamente à medida que os elementos são adicionados ou removidos.
+
+Criando um ArrayList
+
+Para criar um ArrayList, você precisa importar a classe java.util.ArrayList e, em seguida, instanciar um objeto da classe ArrayList.
+Você pode especificar o tipo de objeto que será armazenado no ArrayList entre os símbolos "<>".
+
+
+import java.util.ArrayList;
+
+// Cria um ArrayList para armazenar objetos do tipo String
+ArrayList<String> minhaLista = new ArrayList<String>();
+
+Adicionando elementos a um ArrayList
+
+Você pode adicionar elementos a um ArrayList usando o método add(). Por exemplo:
+
+minhaLista.add("primeiro elemento");
+minhaLista.add("segundo elemento");
+minhaLista.add("terceiro elemento");
+
+Você pode acessar elementos de um ArrayList usando o método get(). O método get() retorna o elemento na posição especificada. Por exemplo:
+
+String primeiroElemento = minhaLista.get(0); // retorna "primeiro elemento"
+
+Removendo elementos de um ArrayList
+Você pode remover elementos de um ArrayList usando o método remove(). O método remove() remove o elemento na posição especificada. Por exemplo:
+
+minhaLista.remove(1); // remove o segundo elemento da lista
+
+Também é possível instanciar objetos de uma classe dentro de um ArrayList em Java.
+Para fazer isso, basta especificar o tipo da lista como sendo a classe que deseja instanciar.
+
+ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
+
+////////////////////////////////
+6. For / For each
+
+O loop "for" é uma estrutura de controle em Java que permite que você execute um bloco de código várias vezes.
+Ele é uma das estruturas de controle mais comuns e é frequentemente usada para percorrer uma coleção de objetos, como um array ou uma lista.
+
+for (int i = 0; i < 10; i++) {
+    System.out.println(i);
+}
+
+
+Você pode percorrer os elementos de um array usando um loop "for". Por exemplo, o seguinte código percorre um array de inteiros e imprime cada elemento:
+
+int[] numeros = {1, 2, 3, 4, 5};
+
+for (int i = 0; i < numeros.length; i++) {
+    System.out.println(numeros[i]);
+}
+
+Para imprimir os elementos de um array usando um loop "for", você pode usar a sintaxe "for-each", que é uma variação do loop "for". Aqui está um exemplo:
+
+int[] numeros = {1, 2, 3, 4, 5};
+
+for (int numero : numeros) {
+    System.out.println(numero);
+}
