@@ -10,7 +10,7 @@ public int getCodigo() {
     return codigo;
 }
 public void setCodigo(int codigo) {
-    this.codigo = codigo;
+    this.codigo = Podigo;
 }
 public int getQtdeVagas() {
     return qtdeVagas;
