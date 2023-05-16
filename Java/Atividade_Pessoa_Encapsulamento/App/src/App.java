@@ -33,6 +33,6 @@ public class App {
             System.out.printf("IMC:.............. %.2f%n", imc);
             System.out.println("Situação: " + ps.classificarIMC(peso));
         }
-        
+        sc.close();
     }
 }
